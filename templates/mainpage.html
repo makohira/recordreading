@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class='row mt-1'>
+  <div class='col-auto mr-auto'></div>
+  <div class='col-auto'>
+    <a href='{{ app_dir }}/logout' class='btn-sm btn-outline-secondary'>ログアウト</a>
+  </div>
+</div>
+<div class='card mt-2 bg-light'>
+  <div class='card-body'>
+    <form method='POST' action='{{ app_dir }}/editnote'>
+      <div class='row mt-2'>
+        <div class='col-*'>
+          <h4>{{ user_name }}さんの読書記録</h4>
+        </div>
+        <div class='col-auto ml-1'>
+          <div class='d-inline'>
+	    <a href='{{ app_dir }}/newnote' class='btn btn-outline-secondary'>新規読書</a>
+            <input class='btn btn-outline-secondary' value='編集閲覧' type='SUBMIT'> 
+          </div>
+        </div>
+      </div>
+      <div class='row mt-1'>
+        <div class='card mt-2 bg-white'>
+          <div class='card-body'>
+            {% for book in books %}
+              <div class='form-check'>
+                <input class='form-check-input'
+                       type='radio'
+                       name='book'
+                       id='{{ book["id"] }}'
+                       value='{{ book["id"] }}'>
+                       </input>
+                <label class='form-check-label' for='{{ book["id"] }}'>{{ book["name"]}}</label>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+          <!-- <div class='form-control' name='book' size='{{ list_size }}' multiple> -->
+          <!-- {% for book in books %}
+            <option value='{{ book["id"] }}'>{{ book['name'] }}</option>
+          {% endfor %} -->
+        <!-- </select> -->
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

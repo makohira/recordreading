@@ -4,7 +4,7 @@
 <div class='card mt-2 bg-light'>
   <div class='card-body'>
     <h3>{{ the_title }}</h3>
-    <form method='POST' action='{{ url_for("login") }}'>
+    <form method='POST' action='{{ app_dir }}/login'>
       <div class='form-group'>
         <label for='inemail'>Eメールアドレス</label>
         <input type='email' name='email' class='form-control' id='inemail' placeholder='Eメールアドレス'>

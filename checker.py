@@ -1,7 +1,7 @@
 from flask import session, render_template
 from functools import wraps
 
-appdir = 'recordreading'
+appdir = '/recordreading'
 def check_logged_in(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
